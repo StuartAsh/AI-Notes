@@ -9,7 +9,7 @@ const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
-// Models: gpt-4-1106-preview, gpt-3.5-turbo-0125
+// Models: gpt-4-turbo-2024-04-09, gpt-4-1106-preview, gpt-3.5-turbo-0125
 
 const app = express();
 
@@ -44,7 +44,7 @@ app.post("/research", async (req, res) => {
   const { prompt } = req.body;
   console.log("API request /research");
   const response = await openai.chat.completions.create({
-    model: "gpt-4-1106-preview",
+    model: "gpt-4-turbo-2024-04-09",
     messages: [{"role": "system", "content": "You are an expert researcher skilled at discovering and sharing knowledge."},
         {"role": "user", "content": prompt}],
   });
